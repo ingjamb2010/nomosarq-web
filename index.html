@@ -1,12 +1,449 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NomosArq</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NomosArq | Arquitectura, licencias y normatividad</title>
+  <meta name="description" content="NomosArq ofrece servicios de arquitectura, licencias, estudio normativo y asesoría técnica para proyectos residenciales, comerciales y urbanísticos." />
+  <style>
+    :root {
+      --primary: #111827;
+      --secondary: #f3f4f6;
+      --accent: #d1d5db;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.55;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .menu a {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-dark {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-light {
+      border: 1px solid #d1d5db;
+      color: var(--primary);
+      background: var(--white);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #374151;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.05;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--secondary);
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 108px;
+    }
+
+    .stat small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat strong {
+      font-size: 1.05rem;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin: 0 0 12px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .steps-wrap {
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-box p {
+      color: #d1d5db;
+    }
+
+    .contact-card {
+      background: var(--white);
+      color: var(--text);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 10px 0;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .steps-grid,
+      .contact-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>NomosArq</h1>
-  <p>Sitio web en construcción.</p>
+  <header>
+    <div class="container nav">
+      <div class="brand">NomosArq</div>
+      <nav class="menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">Arquitectura, licencias y normatividad</span>
+          <h1>Soluciones arquitectónicas con respaldo técnico y normativo</h1>
+          <p>
+            En NomosArq acompañamos proyectos desde la viabilidad del predio hasta el diseño y la gestión documental,
+            con un enfoque profesional, claro y orientado a resultados.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#contacto">Solicitar asesoría</a>
+            <a class="btn btn-light" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="stats">
+            <div class="stat">
+              <small>Enfoque</small>
+              <strong>Normativo y técnico</strong>
+            </div>
+            <div class="stat">
+              <small>Gestión</small>
+              <strong>Licencias y trámites</strong>
+            </div>
+            <div class="stat">
+              <small>Servicio</small>
+              <strong>Diseño arquitectónico</strong>
+            </div>
+            <div class="stat">
+              <small>Valor</small>
+              <strong>Claridad y confianza</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-title">
+          <h2>Servicios de NomosArq</h2>
+          <p>
+            Un portafolio pensado para clientes que necesitan diseño, viabilidad, licenciamiento y acompañamiento técnico en sus proyectos.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Licencias y trámites</h3>
+            <p>Acompañamiento en licencias de construcción, legalización, revisión documental y gestión ante entidades competentes.</p>
+          </article>
+          <article class="card">
+            <h3>Diseño arquitectónico</h3>
+            <p>Desarrollo de propuestas funcionales y estéticas para vivienda, comercio y proyectos a la medida.</p>
+          </article>
+          <article class="card">
+            <h3>Estudio normativo</h3>
+            <p>Validación jurídica y urbanística del predio: escrituras, tradición y libertad, planos de loteo, planos de manzana y viabilidad del proyecto.</p>
+          </article>
+          <article class="card">
+            <h3>Asesoría técnica</h3>
+            <p>Apoyo profesional para planeación, revisión de documentos, control de información y toma de decisiones del proyecto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="steps-wrap">
+      <div class="container steps-grid">
+        <div class="section-title">
+          <h2>Cómo trabajamos</h2>
+          <p>
+            Nuestro proceso busca reducir riesgos, organizar la información del predio y acompañar técnicamente cada etapa del proyecto.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>Análisis inicial del predio y de las necesidades del cliente.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>Revisión normativa, jurídica y urbanística del proyecto.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>Diseño y desarrollo de la propuesta arquitectónica.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>Preparación de planos, documentos y soportes requeridos.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div>Gestión, seguimiento y acompañamiento del trámite o del proyecto.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div>
+              <h2>Impulsa tu proyecto con NomosArq</h2>
+              <p>
+                Te ayudamos a revisar la viabilidad del predio, estructurar el proyecto y avanzar con respaldo normativo y arquitectónico.
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <h3>Contacto</h3>
+              <p><strong>Empresa:</strong> NomosArq</p>
+              <p><strong>Correo:</strong> contacto@nomosarq.com</p>
+              <p><strong>Teléfono:</strong> +57 300 000 0000</p>
+              <p><strong>Servicios:</strong> Diseño arquitectónico, licencias, estudio normativo y asesoría técnica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 NomosArq. Todos los derechos reservados.</div>
+  </footer>
 </body>
 </html>
