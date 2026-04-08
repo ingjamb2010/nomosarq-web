@@ -61,10 +61,10 @@
     .top-brand {
       background: linear-gradient(135deg, #3f2e22, #6b4f3a);
       position: relative;
-      overflow: hidden;
-      padding: 26px 0 20px;
+      overflow: visible;
+      padding: 10px 0 52px;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .top-brand::before {
@@ -87,36 +87,44 @@
       pointer-events: none;
     }
 
-    .top-brand img {
-      width: 90px;
-      height: 90px;
+    .brand-stack {
+      position: relative;
+      z-index: 2;
+      margin-bottom: -48px;
+    }
+
+    .brand-stack img {
+      width: 145px;
+      height: 145px;
       object-fit: contain;
       margin: 0 auto 12px;
-      border-radius: 16px;
-      padding: 6px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      border-radius: 24px;
+      padding: 12px;
+      background: #ffffff;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
       transition: transform 0.25s ease;
     }
 
-    .top-brand img:hover {
+    .brand-stack img:hover {
       transform: scale(1.04);
     }
 
-    .top-brand h1 {
+    .brand-stack h1 {
       margin: 0;
       color: #f5efe8;
-      font-size: 1.9rem;
-      letter-spacing: 1.5px;
+      font-size: 2rem;
+      letter-spacing: 1.6px;
       font-weight: 600;
     }
 
-    .top-brand p {
-      margin: 6px 0 0;
-      color: #d8c7b5;
-      font-size: 0.85rem;
+    .brand-subtitle {
+      text-align: center;
+      padding-top: 58px;
+      padding-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
       letter-spacing: 1px;
+      background: #fff;
     }
 
     header {
@@ -433,7 +441,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 24px;
       align-items: center;
     }
@@ -455,55 +463,45 @@
       margin: 10px 0;
     }
 
+    .contact-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
     .contact-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 20px;
     }
 
-    .qr-section {
-      background: #faf6f2;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .qr-wrap {
-      max-width: 780px;
-      margin: 0 auto;
+    .contact-qr {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 12px;
       text-align: center;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 32px 24px;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-width: 168px;
     }
 
-    .qr-wrap:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 36px rgba(73, 48, 33, 0.12);
-    }
-
-    .qr-wrap h2 {
-      margin: 0 0 12px;
-      color: var(--primary-dark);
-    }
-
-    .qr-wrap p {
-      margin: 0 0 22px;
-      color: var(--muted);
-    }
-
-    .qr-wrap img {
-      width: 240px;
-      height: 240px;
+    .contact-qr img {
+      width: 125px;
+      height: 125px;
       object-fit: contain;
-      margin: 0 auto;
-      border-radius: 18px;
-      border: 1px solid var(--line);
+      margin: 0 auto 8px;
+      border-radius: 14px;
       background: #fff;
-      padding: 10px;
+      padding: 8px;
+    }
+
+    .contact-qr span {
+      display: block;
+      font-size: 0.82rem;
+      color: #eadfd4;
+      letter-spacing: 0.4px;
     }
 
     footer {
@@ -526,20 +524,36 @@
         padding-top: 54px;
       }
 
-      .top-brand img {
-        width: 90px;
-        height: 90px;
+      .brand-stack img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .brand-subtitle {
+        padding-top: 52px;
+      }
+
+      .contact-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-qr {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-brand fade-up">
-    <div class="container">
+    <div class="container brand-stack">
       <img src="logo-nomosarq.jpg" alt="Logo NomosArq" />
       <h1>NomosArq</h1>
-      <p>Arquitectura, licencias y normatividad</p>
     </div>
+  </div>
+
+  <div class="brand-subtitle fade-up delay-1">
+    Arquitectura, licencias y normatividad
   </div>
 
   <header class="fade-up delay-1">
@@ -549,7 +563,6 @@
         <a href="#proceso">Proceso</a>
         <a href="#galeria">Inspiración</a>
         <a href="#contacto">Contacto</a>
-        <a href="#qr">Código QR</a>
       </nav>
     </div>
   </header>
@@ -681,9 +694,17 @@
               <p>
                 Te ayudamos a revisar la viabilidad del predio, estructurar el proyecto y avanzar con respaldo normativo, diseño arquitectónico y acompañamiento técnico profesional.
               </p>
-              <div class="contact-buttons">
-                <a class="btn btn-light" href="https://wa.me/573219719929" target="_blank">WhatsApp</a>
-                <a class="btn btn-light" href="https://wa.me/573043949917" target="_blank">WhatsApp</a>
+
+              <div class="contact-bottom">
+                <div class="contact-buttons">
+                  <a class="btn btn-light" href="https://wa.me/573219719929" target="_blank">WhatsApp</a>
+                  <a class="btn btn-light" href="https://wa.me/573043949917" target="_blank">WhatsApp</a>
+                </div>
+
+                <div class="contact-qr">
+                  <img src="qr-nomosarq.jpg" alt="Código QR de NomosArq" />
+                  <span>Escanea nuestro QR</span>
+                </div>
               </div>
             </div>
 
@@ -696,18 +717,6 @@
               <p><strong>Servicios:</strong> Diseño arquitectónico, licencias, estudio normativo y asesoría técnica.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="qr" class="qr-section">
-      <div class="container">
-        <div class="qr-wrap fade-up">
-          <h2>Escanea nuestro código QR</h2>
-          <p>
-            Accede rápidamente a nuestro canal digital y mantente en contacto con NomosArq.
-          </p>
-          <img src="qr-nomosarq.jpg" alt="Código QR de NomosArq" />
         </div>
       </div>
     </section>
