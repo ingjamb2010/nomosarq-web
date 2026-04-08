@@ -40,6 +40,85 @@
       margin: 0 auto;
     }
 
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .top-brand {
+      background: linear-gradient(135deg, #3f2e22, #6b4f3a);
+      position: relative;
+      overflow: hidden;
+      padding: 26px 0 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .top-brand::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c7a889, transparent);
+      opacity: 0.65;
+    }
+
+    .top-brand::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 45%);
+      pointer-events: none;
+    }
+
+    .top-brand img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin: 0 auto 12px;
+      border-radius: 16px;
+      padding: 6px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease;
+    }
+
+    .top-brand img:hover {
+      transform: scale(1.04);
+    }
+
+    .top-brand h1 {
+      margin: 0;
+      color: #f5efe8;
+      font-size: 1.9rem;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .top-brand p {
+      margin: 6px 0 0;
+      color: #d8c7b5;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
     header {
       position: sticky;
       top: 0;
@@ -52,44 +131,10 @@
     .nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      justify-content: center;
+      gap: 24px;
       padding: 14px 0;
-    }
-
-    .brand {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: #fff;
-      padding: 4px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1.05rem;
-      color: var(--primary-dark);
-      line-height: 1.1;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--muted);
+      flex-wrap: wrap;
     }
 
     .menu {
@@ -97,12 +142,34 @@
       gap: 20px;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
     }
 
     .menu a {
       color: var(--muted);
       font-size: 0.96rem;
       font-weight: 600;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .menu a:hover {
+      color: var(--primary-dark);
+    }
+
+    .menu a:hover::after {
+      width: 100%;
     }
 
     .btn {
@@ -110,22 +177,32 @@
       padding: 14px 22px;
       border-radius: 16px;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .btn-dark {
       background: var(--primary);
       color: var(--white);
+      box-shadow: 0 8px 18px rgba(107, 79, 58, 0.18);
+    }
+
+    .btn-dark:hover {
+      background: var(--primary-dark);
     }
 
     .btn-light {
       border: 1px solid #d7c4b1;
       color: var(--primary-dark);
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.78);
+    }
+
+    .btn-light:hover {
+      background: #fff;
+      border-color: var(--accent);
     }
 
     .hero {
@@ -152,7 +229,7 @@
       font-weight: 700;
     }
 
-    h1 {
+    .hero h2 {
       font-size: clamp(2.2rem, 5vw, 4.1rem);
       line-height: 1.05;
       margin: 0 0 18px;
@@ -178,6 +255,12 @@
       border-radius: 28px;
       padding: 16px;
       box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(73, 48, 33, 0.14);
     }
 
     .hero-image {
@@ -199,6 +282,11 @@
       height: 145px;
       object-fit: cover;
       border-radius: 18px;
+      transition: transform 0.25s ease;
+    }
+
+    .mini-gallery img:hover {
+      transform: scale(1.02);
     }
 
     section {
@@ -233,6 +321,12 @@
       padding: 24px;
       box-shadow: var(--shadow);
       background: var(--white);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(73, 48, 33, 0.12);
     }
 
     .card h3 {
@@ -278,6 +372,11 @@
       border-radius: 20px;
       padding: 18px;
       box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .step:hover {
+      transform: translateX(4px);
     }
 
     .step-number {
@@ -304,6 +403,12 @@
       border: 1px solid var(--line);
       background: #fff;
       box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(73, 48, 33, 0.12);
     }
 
     .gallery-card img {
@@ -342,6 +447,7 @@
       color: var(--text);
       border-radius: 22px;
       padding: 24px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
     .contact-card p {
@@ -354,6 +460,50 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 20px;
+    }
+
+    .qr-section {
+      background: #faf6f2;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .qr-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .qr-wrap:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(73, 48, 33, 0.12);
+    }
+
+    .qr-wrap h2 {
+      margin: 0 0 12px;
+      color: var(--primary-dark);
+    }
+
+    .qr-wrap p {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .qr-wrap img {
+      width: 240px;
+      height: 240px;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 10px;
     }
 
     footer {
@@ -372,31 +522,34 @@
         grid-template-columns: 1fr;
       }
 
-      .menu {
-        display: none;
-      }
-
       .hero {
         padding-top: 54px;
+      }
+
+      .top-brand img {
+        width: 90px;
+        height: 90px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="top-brand fade-up">
+    <div class="container">
+      <img src="logo-nomosarq.jpg" alt="Logo NomosArq" />
+      <h1>NomosArq</h1>
+      <p>Arquitectura, licencias y normatividad</p>
+    </div>
+  </div>
+
+  <header class="fade-up delay-1">
     <div class="container nav">
-      <div class="brand brand-logo">
-        <img src="logo-nomosarq.jpg" alt="Logo NomosArq" />
-        <div class="brand-text">
-          <strong>NomosArq</strong>
-          <span>Arquitectura, licencias y normatividad</span>
-        </div>
-      </div>
       <nav class="menu">
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
         <a href="#galeria">Inspiración</a>
         <a href="#contacto">Contacto</a>
+        <a href="#qr">Código QR</a>
       </nav>
     </div>
   </header>
@@ -404,9 +557,9 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="fade-up delay-1">
           <span class="tag">Diseño arquitectónico con identidad y calidez</span>
-          <h1>Arquitectura con una imagen sobria, cálida y profesional</h1>
+          <h2>Arquitectura con una imagen sobria, cálida y profesional</h2>
           <p>
             En NomosArq desarrollamos proyectos de manera integral, abarcando desde el análisis del predio hasta el diseño, la gestión documental y el respaldo normativo. Nuestra identidad visual se fundamenta en materiales nobles, tonos tierra y una visión contemporánea de la arquitectura.
           </p>
@@ -416,7 +569,7 @@
           </div>
         </div>
 
-        <div class="hero-card">
+        <div class="hero-card fade-up delay-2">
           <img src="arquitectura-1.jpg" alt="Fachada de arquitectura en tonos tierra" class="hero-image" />
           <div class="mini-gallery">
             <img src="arquitectura-2.jpg" alt="Interior arquitectónico cálido y contemporáneo" />
@@ -428,7 +581,7 @@
 
     <section id="servicios">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-up">
           <h2>Servicios de NomosArq</h2>
           <p>
             Un portafolio pensado para clientes que requieren diseño, viabilidad, licencias y acompañamiento técnico integral con una visión clara del proyecto.
@@ -436,22 +589,22 @@
         </div>
 
         <div class="cards">
-          <article class="card">
+          <article class="card fade-up delay-1">
             <h3>Licencias y trámites</h3>
             <p>Acompañamiento en licencias de construcción, legalización, revisión documental y gestión ante entidades competentes.</p>
           </article>
 
-          <article class="card highlight">
+          <article class="card highlight fade-up delay-2">
             <h3>Diseño arquitectónico</h3>
             <p>Concebimos propuestas que articulan funcionalidad y estética, respondiendo a la identidad del cliente, la normativa aplicable y las dinámicas del contexto urbano.</p>
           </article>
 
-          <article class="card">
+          <article class="card fade-up delay-3">
             <h3>Estudio normativo</h3>
             <p>Desarrollamos un análisis integral jurídico y urbanístico del predio, abarcando la revisión de escrituras, certificados de tradición y libertad, planos de loteo, planos de manzana y la evaluación de la viabilidad del proyecto.</p>
           </article>
 
-          <article class="card highlight">
+          <article class="card highlight fade-up delay-4">
             <h3>Asesoría técnica</h3>
             <p>Apoyo profesional para planeación, revisión de documentos, control de información y toma de decisiones estratégicas del proyecto.</p>
           </article>
@@ -461,7 +614,7 @@
 
     <section id="proceso" class="steps-wrap">
       <div class="container steps-grid">
-        <div class="section-title">
+        <div class="section-title fade-up">
           <h2>Cómo trabajamos</h2>
           <p>
             Nuestro proceso busca reducir riesgos, organizar la información del predio y acompañar técnicamente cada etapa con orden, estética y claridad documental.
@@ -469,23 +622,23 @@
         </div>
 
         <div class="steps">
-          <div class="step">
+          <div class="step fade-up delay-1">
             <div class="step-number">1</div>
             <div>Análisis inicial del predio y de las necesidades del cliente.</div>
           </div>
-          <div class="step">
+          <div class="step fade-up delay-2">
             <div class="step-number">2</div>
             <div>Revisión normativa, jurídica y urbanística del proyecto.</div>
           </div>
-          <div class="step">
+          <div class="step fade-up delay-3">
             <div class="step-number">3</div>
             <div>Diseño y desarrollo de la propuesta arquitectónica.</div>
           </div>
-          <div class="step">
+          <div class="step fade-up delay-4">
             <div class="step-number">4</div>
             <div>Preparación de planos, documentos y soportes requeridos.</div>
           </div>
-          <div class="step">
+          <div class="step fade-up">
             <div class="step-number">5</div>
             <div>Gestión, seguimiento y acompañamiento del trámite o del proyecto.</div>
           </div>
@@ -495,7 +648,7 @@
 
     <section id="galeria">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-up">
           <h2>Inspiración visual</h2>
           <p>
             Una línea estética basada en materiales cálidos, fachadas sobrias, texturas naturales y espacios contemporáneos con identidad arquitectónica.
@@ -503,15 +656,15 @@
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-card">
+          <div class="gallery-card fade-up delay-1">
             <img src="arquitectura-1.jpg" alt="Fachada moderna cálida" />
             <div>Fachadas modernas con tonos tierra, piedra, concreto y madera.</div>
           </div>
-          <div class="gallery-card">
+          <div class="gallery-card fade-up delay-2">
             <img src="arquitectura-2.jpg" alt="Interior en tonos terracota" />
             <div>Interiores cálidos con luz natural, terracota y materiales nobles.</div>
           </div>
-          <div class="gallery-card">
+          <div class="gallery-card fade-up delay-3">
             <img src="arquitectura-3.jpg" alt="Espacio arquitectónico contemporáneo" />
             <div>Espacios contemporáneos con un lenguaje limpio, elegante y funcional.</div>
           </div>
@@ -521,7 +674,7 @@
 
     <section id="contacto">
       <div class="container">
-        <div class="contact-box">
+        <div class="contact-box fade-up">
           <div class="contact-grid">
             <div>
               <h2>Impulsa tu proyecto con NomosArq</h2>
@@ -529,8 +682,8 @@
                 Te ayudamos a revisar la viabilidad del predio, estructurar el proyecto y avanzar con respaldo normativo, diseño arquitectónico y acompañamiento técnico profesional.
               </p>
               <div class="contact-buttons">
-                <a class="btn btn-light" href="https://wa.me/573219719929" target="_blank">WhatsApp 3219719929</a>
-                <a class="btn btn-light" href="https://wa.me/573043949917" target="_blank">WhatsApp 3043949917</a>
+                <a class="btn btn-light" href="https://wa.me/573219719929" target="_blank">WhatsApp</a>
+                <a class="btn btn-light" href="https://wa.me/573043949917" target="_blank">WhatsApp</a>
               </div>
             </div>
 
@@ -540,10 +693,21 @@
               <p><strong>Correo:</strong> Contactanos@nomosarq.com</p>
               <p><strong>Teléfono 1:</strong> 3219719929</p>
               <p><strong>Teléfono 2:</strong> 3043949917</p>
-              <p><strong>WhatsApp:</strong> 3219719929 / 3043949917</p>
               <p><strong>Servicios:</strong> Diseño arquitectónico, licencias, estudio normativo y asesoría técnica.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="qr" class="qr-section">
+      <div class="container">
+        <div class="qr-wrap fade-up">
+          <h2>Escanea nuestro código QR</h2>
+          <p>
+            Accede rápidamente a nuestro canal digital y mantente en contacto con NomosArq.
+          </p>
+          <img src="qr-nomosarq.jpg" alt="Código QR de NomosArq" />
         </div>
       </div>
     </section>
