@@ -59,10 +59,12 @@
     }
 
     .top-brand {
-      background: linear-gradient(135deg, #3f2e22, #6b4f3a);
+      background:
+        linear-gradient(135deg, rgba(63, 46, 34, 0.96), rgba(107, 79, 58, 0.94)),
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 45%);
       position: relative;
-      overflow: visible;
-      padding: 10px 0 52px;
+      overflow: hidden;
+      padding: 18px 0 58px;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
@@ -73,53 +75,68 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 60%;
+      width: 72%;
       height: 2px;
       background: linear-gradient(90deg, transparent, #c7a889, transparent);
-      opacity: 0.65;
+      opacity: 0.75;
     }
 
     .top-brand::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 45%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.03), transparent 35%);
       pointer-events: none;
     }
 
     .brand-stack {
       position: relative;
       z-index: 2;
-      margin-bottom: -48px;
+      margin-bottom: -50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .brand-logo-wrap {
+      width: min(100%, 460px);
+      padding: 0;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .brand-stack img {
-      width: 145px;
-      height: 145px;
+      width: 100%;
+      max-width: 360px;
+      max-height: 190px;
       object-fit: contain;
-      margin: 0 auto 12px;
-      border-radius: 24px;
-      padding: 12px;
-      background: #ffffff;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+      object-position: center;
+      margin: 0 auto;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
       transition: transform 0.25s ease;
     }
 
     .brand-stack img:hover {
-      transform: scale(1.04);
+      transform: scale(1.02);
     }
 
     .brand-stack h1 {
       margin: 0;
       color: #f5efe8;
       font-size: 2rem;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.8px;
       font-weight: 600;
+      text-transform: uppercase;
     }
 
     .brand-subtitle {
       text-align: center;
-      padding-top: 58px;
+      padding-top: 60px;
       padding-bottom: 12px;
       color: var(--muted);
       font-size: 0.92rem;
@@ -524,9 +541,13 @@
         padding-top: 54px;
       }
 
+      .brand-logo-wrap {
+        width: min(100%, 320px);
+      }
+
       .brand-stack img {
-        width: 120px;
-        height: 120px;
+        max-width: 260px;
+        max-height: 140px;
       }
 
       .brand-subtitle {
@@ -547,7 +568,9 @@
 <body>
   <div class="top-brand fade-up">
     <div class="container brand-stack">
-      <img src="logo-nomosarq.jpg" alt="Logo NomosArq" />
+      <div class="brand-logo-wrap">
+        <img src="logo-nomosarq.jpg" alt="Logo NomosArq" />
+      </div>
       <h1>NomosArq</h1>
     </div>
   </div>
@@ -572,7 +595,7 @@
       <div class="container hero-grid">
         <div class="fade-up delay-1">
           <span class="tag">Diseño arquitectónico con identidad y calidez</span>
-          <h2>Arquitectura con una imagen sobria, cálida y profesional</h2>
+          <h2>Arquitectura, una imagen sobria, cálida y profesional</h2>
           <p>
             En NomosArq desarrollamos proyectos de manera integral, abarcando desde el análisis del predio hasta el diseño, la gestión documental y el respaldo normativo. Nuestra identidad visual se fundamenta en materiales nobles, tonos tierra y una visión contemporánea de la arquitectura.
           </p>
