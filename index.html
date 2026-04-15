@@ -540,6 +540,66 @@
       letter-spacing: 0.4px;
     }
 
+    .form-section {
+      background: linear-gradient(180deg, #fff 0%, #faf6f2 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .form-wrapper {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .form-info,
+    .form-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-info {
+      padding: 30px;
+    }
+
+    .form-info h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: 1.35rem;
+    }
+
+    .form-info p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .form-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--secondary);
+      color: var(--primary-dark);
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .form-box {
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .form-box iframe {
+      width: 100%;
+      min-height: 980px;
+      border: 0;
+      border-radius: 20px;
+      background: #fff;
+    }
+
     footer {
       padding: 28px 0 40px;
       color: var(--muted);
@@ -550,6 +610,7 @@
     @media (max-width: 950px) {
       .hero-grid,
       .steps-grid,
+      .form-wrapper,
       .contact-grid,
       .cards,
       .gallery-grid {
@@ -603,6 +664,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
         <a href="#galeria">Inspiración</a>
+        <a href="#formulario">Formulario</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -626,6 +688,7 @@
               Escríbenos por WhatsApp
             </a>
             <a class="btn btn-light" href="#servicios">Conocer servicios</a>
+            <a class="btn btn-light" href="#formulario">Solicitar asesoría</a>
           </div>
         </div>
 
@@ -760,6 +823,57 @@
           <div class="gallery-card fade-up delay-3">
             <img src="arquitectura-3.jpg" alt="Espacio arquitectónico contemporáneo" />
             <div>Espacios contemporáneos con un lenguaje limpio, elegante y funcional.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formulario" class="form-section">
+      <div class="container">
+        <div class="section-title fade-up">
+          <h2>Cuéntanos sobre tu proyecto</h2>
+          <p>
+            Completa este formulario para que el equipo de NomosArq conozca tu necesidad y pueda
+            contactarte con una orientación inicial clara, rápida y profesional.
+          </p>
+        </div>
+
+        <div class="form-wrapper">
+          <div class="form-info fade-up delay-1">
+            <h3>Atención inicial para clientes potenciales</h3>
+            <p>
+              Aquí puedes registrar tus datos básicos, el servicio de interés y la ubicación o chip
+              del predio. Esta información nos ayuda a revisar mejor el caso antes de contactarte.
+            </p>
+            <p>
+              El formulario está integrado directamente en la página para facilitar la respuesta
+              desde computador o celular.
+            </p>
+            <div class="form-note">
+              Si prefieres, también puedes abrir el formulario en una pestaña independiente.
+            </div>
+            <div class="hero-actions" style="margin-top: 18px;">
+              <a
+                class="btn btn-dark"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSej6FQeOziaRHD0UfrtU12PR6iHXTConQWpTk1tXy6jv1u0OQ/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Abrir formulario
+              </a>
+            </div>
+          </div>
+
+          <div class="form-box fade-up delay-2">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSej6FQeOziaRHD0UfrtU12PR6iHXTConQWpTk1tXy6jv1u0OQ/viewform?embedded=true"
+              title="Formulario de clientes NomosArq"
+              loading="lazy"
+              marginheight="0"
+              marginwidth="0"
+            >
+              Cargando formulario…
+            </iframe>
           </div>
         </div>
       </div>
