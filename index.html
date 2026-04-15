@@ -287,12 +287,6 @@
       margin-bottom: 28px;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
     .hero-card {
       background: var(--white);
       border: 1px solid var(--line);
@@ -467,6 +461,66 @@
       font-size: 0.95rem;
     }
 
+    .form-section {
+      background: linear-gradient(180deg, #fff 0%, #faf6f2 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .form-wrapper {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .form-info,
+    .form-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-info {
+      padding: 30px;
+    }
+
+    .form-info h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: 1.35rem;
+    }
+
+    .form-info p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .form-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--secondary);
+      color: var(--primary-dark);
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .form-box {
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .form-box iframe {
+      width: 100%;
+      min-height: 980px;
+      border: 0;
+      border-radius: 20px;
+      background: #fff;
+    }
+
     .contact-box {
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: var(--white);
@@ -538,66 +592,6 @@
       font-size: 0.82rem;
       color: #eadfd4;
       letter-spacing: 0.4px;
-    }
-
-    .form-section {
-      background: linear-gradient(180deg, #fff 0%, #faf6f2 100%);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .form-wrapper {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .form-info,
-    .form-box {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-info {
-      padding: 30px;
-    }
-
-    .form-info h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: var(--primary-dark);
-      font-size: 1.35rem;
-    }
-
-    .form-info p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
-
-    .form-note {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: var(--secondary);
-      color: var(--primary-dark);
-      border: 1px solid var(--line);
-      font-weight: 600;
-    }
-
-    .form-box {
-      padding: 14px;
-      overflow: hidden;
-    }
-
-    .form-box iframe {
-      width: 100%;
-      min-height: 980px;
-      border: 0;
-      border-radius: 20px;
-      background: #fff;
     }
 
     footer {
@@ -682,14 +676,6 @@
             visual se fundamenta en materiales nobles, tonos tierra y una visión contemporánea de la
             arquitectura.
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-dark" href="https://wa.me/573219719929" target="_blank">
-              Escríbenos por WhatsApp
-            </a>
-            <a class="btn btn-light" href="#servicios">Conocer servicios</a>
-            <a class="btn btn-light" href="#formulario">Solicitar asesoría</a>
-          </div>
         </div>
 
         <div class="hero-card fade-up delay-2">
@@ -850,17 +836,7 @@
               desde computador o celular.
             </p>
             <div class="form-note">
-              Si prefieres, también puedes abrir el formulario en una pestaña independiente.
-            </div>
-            <div class="hero-actions" style="margin-top: 18px;">
-              <a
-                class="btn btn-dark"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSej6FQeOziaRHD0UfrtU12PR6iHXTConQWpTk1tXy6jv1u0OQ/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Abrir formulario
-              </a>
+              También puedes abrir el formulario desde el bloque de contacto al final de la página.
             </div>
           </div>
 
@@ -897,6 +873,14 @@
                   </a>
                   <a class="btn btn-light" href="https://wa.me/573043949917" target="_blank">
                     WhatsApp
+                  </a>
+                  <a
+                    class="btn btn-light"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSej6FQeOziaRHD0UfrtU12PR6iHXTConQWpTk1tXy6jv1u0OQ/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Abrir formulario
                   </a>
                 </div>
 
